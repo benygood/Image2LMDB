@@ -125,10 +125,10 @@ class DatasetLMDB(data.Dataset):
 https://zhuanlan.zhihu.com/p/374875094 \
 场景：有两个lmdb数据集，而且很大，进行合并比较耗时，此时可以分别加载然后训练时叠加使用。
 ```python
-'''
-train_data1,train_data2为 lmdb路径
-keys_path_train1，keys_path_train2 为两个数据的键的npy文件路径
-'''
+
+#train_data1,train_data2为 lmdb路径
+#eys_path_train1，keys_path_train2 为两个数据的键的npy文件路径
+
 training_data1 = LmdbDataset_train(train_data1,transform,keys_path_train1)
 training_data2 = LmdbDataset_train(train_data2,transform,keys_path_train2)
 ​
@@ -141,8 +141,8 @@ train_loader = torch.utils.data.DataLoader(training_data,
                                                pin_memory=True,
                                                sampler=train_sampler)
 
-
 ```
+
 ```python
 class LmdbDataset_train(Dataset):
     def __init__(self,lmdb_path,optimizer,keys_path):
